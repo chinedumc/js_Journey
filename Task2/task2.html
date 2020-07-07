@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>
+        This is the link:<h2 id="welcome"> </h2>
+    </h1>
+
+
+
+
+    <script>
+        var name = prompt("What is your name?");
+        var welcomeNode = document.getElementById("welcome");
+
+        if(name.toLowerCase() == "nedum"){
+            welcomeNode.innerText = "Welcome to your website Nedum";
+        }
+
+
+        // 1. Ask the user for a URL
+        var Url = prompt("Enter a URL");
+        // 2. Check if the link starts with http
+        // 3. If it doesn't start with http, fix the variable
+        if(Url.slice(0, 4) != "http"){
+            Url = "http://" + Url
+        }
+        // 4. Inject a link into your page using .innerHTML
+        var h1Node = document.getElementById("welcome");
+
+        h1Node.innerHTML = "<a href='"+Url+"'>" +Url+ "</a>";
+
+
+
+    </script>
+
+</body>
+</html>
+

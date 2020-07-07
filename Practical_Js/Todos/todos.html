@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical Javascript</title>
+</head>
+<body>
+    <script>
+        var todoList = {
+            todos: ['item 1', 'item 2', 'item 3'],
+            //The displayTodos method
+            displayTodos: function() {
+                console.log('My todos: ', this.todos);
+            },
+            //The addTodos method
+            addTodo: function(todo) {
+                this.todos.push(todo);
+                this.displayTodos();
+            },
+            // The changeTodos method
+            changeTodo: function(position, newValue) {
+                this.todos[position] = newValue;
+                this.displayTodos();
+            },
+            //The deleteTodos method
+            deleteTodo: function(position) {
+                this.todos.splice(position,1);
+                this.displayTodos();
+            }
+        }
+    </script>
+</body>
+</html>
