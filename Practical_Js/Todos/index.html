@@ -10,14 +10,23 @@
 </head>
 <body>
     <h1>Todo List</h1>
+    <!-- Display and Toggle Todos Buttons -->
     <div>
         <button onclick="handlers.displayTodos()">Display Todos</button>
         <button onclick="handlers.toggleAll()">Toggle All</button>
     </div>
     
+    <!-- Add Todos Button -->
     <div>
         <button onclick="handlers.addTodo()">Add</button>
         <input id="addTodoTextInput" type="text">
+    </div>
+
+    <!-- Change Todos Button -->
+    <div>
+        <button onclick="handlers.changeTodo()">Change Todo</button>
+        <input id="changeTodoPositionInput" type="number">
+        <input id="changeTodoTextInput" type="text">
     </div>
 
     <script src="todos4.js"></script>
