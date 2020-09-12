@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List Project</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Todo List</h1>
+    <!-- Display and Toggle Todos Buttons -->
+    <div>
+        <!-- <button onclick="handlers.displayTodos()">Display Todos</button> -->
+        <button onclick="handlers.toggleAll()">Toggle All</button>
+    </div>
+    
+    <!-- Add Todos Button -->
+    <div>
+        <button onclick="handlers.addTodo()">Add</button>
+        <input id="addTodoTextInput" type="text">
+    </div>
+
+    <!-- Change Todos Button -->
+    <div>
+        <button onclick="handlers.changeTodo()">Change Todo</button>
+        <input id="changeTodoPositionInput" type="number">
+        <input id="changeTodoTextInput" type="text">
+    </div>
+
+    <!-- Delete Todos Button -->
+    <div>
+        <button onclick="handlers.deleteTodo()">Delete Todos</button>
+        <input id="deleteTodoPositionInput" type="number">
+    </div>
+
+    <!-- Toggle Complete Button -->
+    <div>
+        <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+        <input id="toggleCompletedPositionInput" type="number">
+    </div>
+
+    <!-- Adding the display as a list on the browser page -->
+    <ul></ul>
+
+
+    <script src="todos4.js"></script>
+    
+    
+</body>
+</html>
