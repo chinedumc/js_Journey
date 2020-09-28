@@ -17,6 +17,11 @@ const books = [{
      title: 'A Gentleman in Moscow',
      authors: ['Amor Towles'],
      rating: 4.36
+ },
+ {
+     title: 'Changing My Mind',
+     authors: ['Zadie Smith'],
+     rating: 3.83
  }]
 
  // To find the (first) book where rating is greater or equal to 4.3
@@ -26,3 +31,12 @@ const books = [{
  const authorNeil = books.find(auth => {
      return auth.authors.indexOf('Neil Gaiman');
  })
+
+ const neilName = books.filter(book => {
+     return book.authors.includes('Neil Gaiman')
+ })
+
+ const authNeilOrZadie = books.filter(book => {
+     return book.authors.includes('Neil Gaiman') || book.authors.includes('Zadie Smith')
+ })
+
