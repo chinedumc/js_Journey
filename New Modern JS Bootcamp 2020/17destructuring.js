@@ -24,11 +24,11 @@ const winner = {
     title: 'Elder of the Order of the Golden Heart of Kenya'
 };
 
-// const {first, last} = winner;
+const {first, last} = winner;
 
-// const {first, country, title} = winner;
+const {first, country, title} = winner;
 
-// const {first, country: nation, title: honorific} = winner;
+const {first, country: nation, title: honorific} = winner;
 
 const {first, country: nation, ...other} = winner;
 
@@ -51,9 +51,9 @@ const results = [{
 ]
 
 const [,{country}] = results; // Gives the country of the 2nd array element
-/*
+
 const [{first: goldWinner}, {country}] = results; 
-*/
+
 // 4. Destructuring Parameters
 const fullName = ({first, last}) => {
     return `${first} ${last}`
@@ -98,6 +98,3 @@ const response = [
 function parseResponse ([protocol, statusCode, contentType]) {
     console.log(`status: ${statusCode}`);
 }
-
-
-
