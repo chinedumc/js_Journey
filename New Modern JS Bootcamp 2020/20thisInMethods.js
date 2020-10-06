@@ -3,11 +3,16 @@ const person = {
     last: 'Sarkisian',
     nickName: 'Cher',
     fullName() {
-        console.log(`${this.first} ${this.last}, AKA ${this.nickName}`)
+        return `${this.first} ${this.last}, AKA ${this.nickName}`
+    },
+    printBio() {
+        //console.log(this);
+        const fullName = this.fullName();
+        console.log(`${fullName} is a person!`)
     }
 }
 
-// can also be written as:
+// fullName can also be written as:
   /*  fullName() {
         const {first, last, nickName} = this;
         console.log(`${first} ${last} AKA ${nickName}`)
