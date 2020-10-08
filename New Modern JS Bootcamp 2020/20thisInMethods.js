@@ -16,5 +16,4 @@ const person = {
   /*  fullName() {
         const {first, last, nickName} = this;
         console.log(`${first} ${last} AKA ${nickName}`)
-    } */
-   
+    */
