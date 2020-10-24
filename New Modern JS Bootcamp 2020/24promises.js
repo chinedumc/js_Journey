@@ -19,22 +19,54 @@
 // });
 
 //RESOLVING - REJECTING WITH VALUES
+// const fakeRequest = (url) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const rand = Math.random();
+//             if (rand < 0.5) {
+//                 reject({status: 404});
+//             }
+//             else {
+//                 resolve();
+//             }
+//         }, 1000)
+//     });
+// };
+
+// fakeRequest()
+//     .then(() => {
+//         console.log('REQUEST WORKED!');
+//     })
+//     .catch((res) => {
+//         console.log(res.status);
+//         console.log('REQUEST FAILED');
+//     });
+
 const fakeRequest = (url) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const rand = Math.random();
-            if (rand < 0.5) {
-                reject({status: 404});
+            const pages = {
+                '/users': [
+                    {id: 1, username: 'Bilbo'},
+                    {id: 2, username: 'Esmerelda'}
+                ],
+                '/about': 'This is the about page!'
+            };
+            const data = pages[url];
+            if (data) {
+                resolve({ status: 200, data});
             }
             else {
-                resolve();
+                reject({ status: 404})
             }
         }, 1000)
     });
 };
 
-fakeRequest()
-    .then(() => {
+fakeRequest('/users')
+    .then((res) => {
+        console.log('Status Code', res.status);
+        console.log('Data', res.data);
         console.log('REQUEST WORKED!');
     })
     .catch((res) => {
