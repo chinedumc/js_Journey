@@ -30,3 +30,28 @@ class Color {
 const red = new Color(255, 67, 89, 'tomato');
 const white = new Color(255, 255, 255, 'white'); 
 const green = new Color(15, 255, 65, 'leafy');
+
+// EXTENDS, SUPER AND SUB CLASSES
+class Pet {
+    constructor(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    eat() {
+        return `${this.name} is eating!`;
+    }
+}
+
+class Cat extends Pet {
+    meow() {
+        return 'MEOWWW!!';
+    }
+}
+
+class Dog extends Pet {
+    bark() {
+        return 'WOOOF!';
+    }
+}
+
+const monty = new Cat('monty', 9) 
