@@ -43,6 +43,10 @@ class Pet {
 }
 
 class Cat extends Pet {
+    consturctor(name, age, livesLeft = 9) {
+        super(name, age);
+        this.livesLeft = livesLeft;
+    }
     meow() {
         return 'MEOWWW!!';
     }
