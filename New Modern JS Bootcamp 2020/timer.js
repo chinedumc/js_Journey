@@ -17,7 +17,12 @@ class Timer {
     };
     //Adding a function which monitors the ticks of the timer
     tick = () => {
-        this.timeRemaining = this.timeRemaining - 1;
+        if (this.timeRemaining <= 0) {
+            this.pause();
+        } else {
+            this.timeRemaining = this.timeRemaining - 1;
+        }
+        
     }
     //Introducing a getter and a setter for tick() to hide the complexities seen earlier.
     get timeRemaining() {
