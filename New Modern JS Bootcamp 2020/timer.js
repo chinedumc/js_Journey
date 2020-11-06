@@ -52,13 +52,21 @@ class Timer {
 const durationInput = document.querySelector('#duration');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
+const circle = document.querySelector('circle');
+
+let currentOffset = 0;
+//Grab the radius of the circle and use it to calculate the perimeter
+const perimeter = circle.getAttribute('r') * 2 * Math.PI; 
+//Set the stroke-dasharray to the perimeter so the dash goes round the circle
+circle.setAttribute('stroke-dasharray', perimeter);
 
 const timer = new Timer(durationInput, startButton, pauseButton, {
     onStart() {
         console.log('Timer Started!');
     },
     onTick() {
-        console.log('Timer ticked');
+        circle.setAttribute('stroke-dashoffset', currentOffset);
+        currentOffset = currentOffset - 50;
     },
     onComplete() {
         console.log('Timer Completed');
