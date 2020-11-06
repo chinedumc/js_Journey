@@ -17,7 +17,7 @@ class Timer {
             this.onStart();
         }
         this.tick();
-        this.interval = setInterval(this.tick, 1000);
+        this.interval = setInterval(this.tick, 50); //Making the tick very frequent so the circle motion is smoother
     };
     //Adding a pause function to stop the timer on click of the pause button
     pause = () => {
@@ -31,7 +31,7 @@ class Timer {
                 this.onComplete();
             }
         } else {
-            this.timeRemaining = this.timeRemaining - 1;
+            this.timeRemaining = this.timeRemaining - 0.05; //0.05 corresponds to the 50ms
             if (this.onTick) {
                 this.onTick();
             }
@@ -44,7 +44,7 @@ class Timer {
     }
 
     set timeRemaining(time) {
-        this.durationInput.value = time;
+        this.durationInput.value = time.toFixed(2);
     }
 
 }
@@ -66,7 +66,7 @@ const timer = new Timer(durationInput, startButton, pauseButton, {
     },
     onTick() {
         circle.setAttribute('stroke-dashoffset', currentOffset);
-        currentOffset = currentOffset - 50;
+        currentOffset = currentOffset - 1;
     },
     onComplete() {
         console.log('Timer Completed');
