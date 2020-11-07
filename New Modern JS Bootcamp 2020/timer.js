@@ -14,10 +14,10 @@ class Timer {
     }
     start = () => {
         if (this.onStart) {
-            this.onStart();
+            this.onStart(this.timeRemaining);
         }
         this.tick();
-        this.interval = setInterval(this.tick, 50); //Making the tick very frequent so the circle motion is smoother
+        this.interval = setInterval(this.tick, 20); //Making the tick very frequent so the circle motion is smoother
     };
     //Adding a pause function to stop the timer on click of the pause button
     pause = () => {
@@ -31,9 +31,9 @@ class Timer {
                 this.onComplete();
             }
         } else {
-            this.timeRemaining = this.timeRemaining - 0.05; //0.05 corresponds to the 50ms
+            this.timeRemaining = this.timeRemaining - 0.02; //0.05 corresponds to the 50ms
             if (this.onTick) {
-                this.onTick();
+                this.onTick(this.timeRemaining);
             }
         }
         
@@ -54,19 +54,22 @@ const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
 const circle = document.querySelector('circle');
 
-let currentOffset = 0;
+
 //Grab the radius of the circle and use it to calculate the perimeter
 const perimeter = circle.getAttribute('r') * 2 * Math.PI; 
 //Set the stroke-dasharray to the perimeter so the dash goes round the circle
 circle.setAttribute('stroke-dasharray', perimeter);
 
+let duration;
 const timer = new Timer(durationInput, startButton, pauseButton, {
-    onStart() {
-        console.log('Timer Started!');
+    onStart(totalDuration) {
+        duration = totalDuration;
     },
-    onTick() {
-        circle.setAttribute('stroke-dashoffset', currentOffset);
-        currentOffset = currentOffset - 1;
+    onTick(timeRemaining) {
+        circle.setAttribute('stroke-dashoffset', 
+          perimeter * timeRemaining / duration - perimeter 
+        );
+        
     },
     onComplete() {
         console.log('Timer Completed');
