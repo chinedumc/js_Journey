@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>InLearn</title>
+</head>
+<body>
+    <div id="app">
+        <img class="img-fluid" v-bind:src="image" v-bind:alt="name">
+        <h2> {{name}} </h2>
+        <p> {{description}} </p>
+        <div class="h3">${{price}} </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@2.6.12"></script>
+    <script src="app.js"></script>
+</body>
+</html>
