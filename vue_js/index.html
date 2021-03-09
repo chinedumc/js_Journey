@@ -9,15 +9,21 @@
     <title>InLearn</title>
 </head>
 <body>
-    <div id="app">
-        <img class="img-fluid" v-bind:src="image" v-bind:alt="name">
-        <h2> {{name}} </h2>
-        <p> {{description}} </p>
-        <div class="h3">${{price}} </div>
+    <div class="container" id="app">
+        <div class="row d-flex mb-3 align-items-center" v-for="item in products">
+            <div class="col-sm-4">
+                <img class="img-fluid" :src="item.image" :alt="item.name">
+            </div>
+            <div class="col">
+                <h3 class="text-info"> {{item.name}} </h3>
+                <p class="mb-0"> {{item.description}} </p>
+                <div class="h5 float-right">${{item.price}} </div>
+            </div>
+        </div>
     </div>
 
 
-    <script src="https://unpkg.com/vue@2.6.12"></script>
+    <script src="https://unpkg.com/vue@2.5.22"></script>
     <script src="app.js"></script>
 </body>
 </html>
