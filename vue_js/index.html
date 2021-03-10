@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>InLearn</title>
+    <title>Vue store</title>
 </head>
 <body>
     <div class="container" id="app">
-        <div class="row d-flex mb-3 align-items-center" v-for="item in products">
+        <div class="form-inline mr-auto">
+            <label for="formMax" class="font-weight-bold mr-2">max</label>
+            <input type="text" id="formMax" class="form-control w-25" v-model="maximum">
+            <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+        </div>
+        <div class="row d-flex mb-3 align-items-center" 
+            v-for="item in products" 
+            v-if="item.price <= Number(maximum)">
             <div class="col-sm-4">
                 <img class="img-fluid" :src="item.image" :alt="item.name">
             </div>

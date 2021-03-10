@@ -1,9 +1,10 @@
 var data = {
+    maximum: 99,
     products: [
         {
             'name': "Bamboo Thermal Ski Coat",
             'description': "You'll be the most environmentally conscious skier on the slopes- and the most stylish - wearing our fitted coat.",
-            'image': "https://hplussport.com/wp-content/uploads/2016/12/ski-coat_LYNDA_29940.jpg",
+            'image': "images/ski-coat_LYNDA_29940.jpg",
             'price': 99
         },
 
