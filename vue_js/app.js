@@ -5,6 +5,11 @@ var app = new Vue({
         products: null,
         cart: []
     },
+    methods: {
+        addItem: function(product) {
+            this.cart.push(product);
+        }
+    },
     mounted: function () {
         fetch('https://hplussport.com/api/products/order/price')
         .then(response => response.json())

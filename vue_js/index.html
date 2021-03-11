@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-light bg-light fixed-top" v-if="(cart.length)>0">
+        <nav class="navbar navbar-light bg-light fixed-top" 
+        v-if="cart.length>0">
             <div class="navbar-text ml-auto">
                 <b>cart:</b>
                 <span class="badge badge-pill badge-success">{{cart.length}}</span>
@@ -27,7 +28,7 @@
             v-if="item.price <= Number(maximum)">
             <div class="col-1 m-auto">
                 <button class="btn btn-info"
-                v-on:click="cart.push(item)" >+</button>
+                v-on:click="addItem(item)" >+</button>
             </div>
             <div class="col-4">
                 <img class="img-fluid d-block" :src="item.image" :alt="item.name">
