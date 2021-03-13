@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app5',
     data: {
+    inputWidth: 60,
      labelArr: ['font-weight-bold', 'mr-2'],   
      maximum: 99,
      products: null,
