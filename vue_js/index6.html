@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style6.css">
     <script src="https://kit.fontawesome.com/a6eae61af6.js" crossorigin="anonymous"></script>
     <title>Toggling computed classes</title>
 </head>
@@ -23,12 +24,15 @@
             </div>
         </nav>
         <h1>My Shop</h1>
-        <div class="align-items-center" :class="sliderState">
-            <label for="formMax" :class="labelArr">max</label>
-            <input type="text" id="formMax" class="form-control mx-2" :style="{'width': inputWidth + 'px', 'text-align':'center'}" v-model="maximum">
-            <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
-        </div>
-
+        <transition name='fade'>
+            <div v-if="sliderStatus">
+                <div class="align-items-center" :class="sliderState">
+                    <label for="formMax" :class="labelArr">max</label>
+                    <input type="text" id="formMax" class="form-control mx-2" :style="{'width': inputWidth + 'px', 'text-align':'center'}" v-model="maximum">
+                    <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+                </div>
+            </div>
+        </transition>
         
         <div class="row d-flex mb-3     align-items-center"
             v-for="item in products"
