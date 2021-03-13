@@ -1,11 +1,18 @@
 var app = new Vue({
     el: '#app5',
     data: {
+    sliderStatus: true,
     inputWidth: 60,
      labelArr: ['font-weight-bold', 'mr-2'],   
      maximum: 99,
      products: null,
      cart: []
+    },
+    computed: {
+        sliderState: function() {
+            return this.sliderStatus ? 'd-flex' : 'd-none'
+        }
+    
     },
     methods: {
      addItem: function(product) {
