@@ -36,24 +36,26 @@
             </div>
         </transition>
         
-        <div class="row d-flex mb-3     align-items-center"
-            v-for="item in products"
-            v-if="item.price>=Number(maximum)">
-            
-            <div class="col-1 m-auto">
-                <button class="btn btn-info"
-                    v-on:click="addItem(item)">+</button>
+        <transition-group tag="div" enter-active-class="animate__animated animate__fadeInDown"
+        leave-active-class="animate__animated animate__fadeOutRight">
+            <div class="row d-flex mb-3     align-items-center"
+                v-for="(item, index) in products" :key="item.id"
+                v-if="item.price>=Number(maximum)">
+                
+                <div class="col-1 m-auto">
+                    <button class="btn btn-info"
+                        v-on:click="addItem(item)">+</button>
+                </div>
+                <div class="col-4">
+                    <img class="img-fluid d-block" :src="item.image" :alt="item.name">
+                </div>
+                <div class="col">
+                    <h3 class="text-info">{{item.name}}</h3>
+                    <p class="mb-0">{{item.description}}</p>
+                    <div class="h5 float-right">${{Number(item.price)}}</div>
+                </div>
             </div>
-            <div class="col-4">
-                <img class="img-fluid d-block" :src="item.image" :alt="item.name">
-            </div>
-            <div class="col">
-                <h3 class="text-info">{{item.name}}</h3>
-                <p class="mb-0">{{item.description}}</p>
-                <div class="h5 float-right">${{Number(item.price)}}</div>
-            </div>
-        </div>
-
+        </transition-group>
     </div>
 
 
