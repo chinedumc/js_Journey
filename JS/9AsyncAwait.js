@@ -22,9 +22,9 @@ const users = [
 ];
 
 const articles = [
-	{ userId: 1, articles: ["one", "two", "three"] , reporter: 'John'},
-	{ userId: 2, articles: ["four", "five"] , reporter: 'Susan'},
-	{ userId: 3, articles: ["six", "seven", "eight", "nine"], reporter: 'Anna' },
+	{ userId: 1, articles: ["one", "two", "three"], reporter: "John" },
+	{ userId: 2, articles: ["four", "five"], reporter: "Susan" },
+	{ userId: 3, articles: ["six", "seven", "eight", "nine"], reporter: "Anna" },
 ];
 
 // getUser("John")
@@ -36,28 +36,28 @@ const getDataUser = async () => {
 	try {
 		const user = await getUser("John");
 		if (user) {
-			const articles = await getArticles(user.id)
+			const articles = await getArticles(user.id);
 			console.log(articles);
 		}
 	} catch (error) {
 		console.log(error);
 	}
-}
-getDataUser()
+};
+getDataUser();
 
 const getDataUserId = async () => {
 	try {
-		const article = await getArticles(1)
+		const article = await getArticles(1);
 		// console.log(article, "artikuls")
 		if (article) {
-			const theUser = await getUser(article.reporter)
-			console.log(theUser.name)
+			const theUser = await getUser(article.reporter);
+			console.log(theUser.name);
 		}
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 	}
-}
-getDataUserId()
+};
+getDataUserId();
 
 function getUser(name) {
 	return new Promise((resolve, reject) => {
@@ -82,3 +82,37 @@ function getArticles(userId) {
 		}
 	});
 }
+
+// 3rd Example: Fetch on APIs
+fetch("https://jsonplaceholder.typicode.com/users")
+	.then((response) => response.json())
+	.then((users) => {
+		const firstUser = users[0];
+		console.log(firstUser);
+		return fetch(
+			"https://jsonplaceholder.typicode.com/posts?userId=" + firstUser.id
+		);
+	})
+	.then((response) => response.json())
+	.then((posts) => console.log(posts));
+
+//Line 87 - 97 as Async-Await code with Second User
+const myAsyncFunction = async () => {
+	try {
+		const usersResponse = await fetch(
+			"https://jsonplaceholder.typicode.com/users"
+		);
+		const users = await usersResponse.json();
+		const secondUser = await users[1];
+		console.log(secondUser);
+	
+		const postsResponse = await fetch(
+			"https://jsonplaceholder.typicode.com/posts?userId=" + secondUser.id
+		);
+		const posts = await postsResponse.json();
+		console.log(posts); 
+	} catch (error) {
+		console.log('There was an error')
+	}
+};
+myAsyncFunction()
